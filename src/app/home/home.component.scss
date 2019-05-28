@@ -1,0 +1,18 @@
+.component{
+  height: calc(100% - 80px);
+  background-color: #D8D8D8;
+  padding: 42px;
+
+  .popup{
+    background-color: white;
+    border-radius: 40px;
+    border:solid 1px #707070;
+  }
+  .buttons{
+    padding: 30px;
+  }
+  h1{
+    width: 100%;
+    text-align: center;
+  }
+}

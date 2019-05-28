@@ -11,6 +11,8 @@ import { StatusComponent } from './status/status.component';
 import {RouterModule, Routes} from '@angular/router';
 import { MainComponent } from './main/main.component';
 import {FormsModule} from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { TaskInfoComponent } from './home/task-info/task-info.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -25,7 +27,9 @@ const appRoutes: Routes = [
     TaskComponent,
     NewTaskComponent,
     StatusComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent,
+    TaskInfoComponent
   ],
   imports: [
     BrowserModule,

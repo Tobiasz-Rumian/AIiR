@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<div class="component">
+  <div class="popup">
+    <div class="buttons">
+      <button>Utwórz nowe zadanie</button>
+      <button>Sprawdź obciążenie węzłów</button>
+    </div>
+    <hr>
+    <h1>Ostatnie zadania</h1>
+    <app-task-info *ngFor="let task of tasks" [task]="task"></app-task-info>
+  </div>
+</div>
