@@ -8,7 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { StatusComponent } from './status/status.component';
+import {RouterModule, Routes} from '@angular/router';
+import { MainComponent } from './main/main.component';
+import {FormsModule} from '@angular/forms';
 
+const appRoutes: Routes = [
+  { path: '', component: MainComponent },
+  { path: '**', component: MainComponent }
+];
 
 @NgModule({
   declarations: [
@@ -17,10 +24,13 @@ import { StatusComponent } from './status/status.component';
     HomeComponent,
     TaskComponent,
     NewTaskComponent,
-    StatusComponent
+    StatusComponent,
+    MainComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

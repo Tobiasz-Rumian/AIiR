@@ -1,7 +1,39 @@
-.popup{
+.component {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #988f90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 800px;
   height: 300px;
-  h1{
+  backdrop-filter: blur(21px);
+  border-radius: 59px;
+  box-shadow: 6px 18px 21px 0 rgba(0, 0, 0, 0.16);
+  background-color: rgba(255, 255, 255, 0.8);
+
+  h1 {
+    padding-bottom: 20px;
     font-family: Lato, serif;
+    size: 39px;
+  }
+
+  .input {
+  outline-width: 0;
+    border-radius: 72px;
+    width: 80%;
+    height: 50px;
+    box-shadow: 6px 18px 21px 0 rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(21px);
+    font-size: 20px;
+    text-align: center;
   }
 }

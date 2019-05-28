@@ -1,3 +1,6 @@
-<p>
-  login works!
-</p>
+<div class="component">
+<div class="popup">
+  <h1>Podaj swój login</h1>
+  <input class="input" type="text" [(ngModel)]="userName" (keydown)="handleKeyPress($event)">
+</div>
+</div>
