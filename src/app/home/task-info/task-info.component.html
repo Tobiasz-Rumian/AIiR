@@ -1,8 +1,5 @@
 <div class="component">
-  <div class="bottom-component" [ngStyle]="{'width.%':getProgress(),'background-color':getColor()}">
-
-  </div>
-  <div class="top-component">
+  <app-progress-bar [color]="getColor()" [progress]="getProgress()">
     <div class="top-bar">
       <p>Status: {{getStatus()}}</p>
       <p>Typ: {{task.type}}</p>
@@ -12,5 +9,6 @@
     <div class="bottom-bar">
       <p>Postęp: {{task.progress}}%</p>
     </div>
-  </div>
+  </app-progress-bar>
+
 </div>

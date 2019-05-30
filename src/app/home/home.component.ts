@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from 'app/model/Task';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,12 @@ import {Task} from 'app/model/Task';
 export class HomeComponent implements OnInit {
   tasks: Task[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
     const task1 = {
+      id: 1,
       status: 1,
       type: 'Wygenerowany losowo',
       algorithm: 'Mrówkowy',
@@ -21,6 +23,7 @@ export class HomeComponent implements OnInit {
       progress: 80
     };
     const task2 = {
+      id: 2,
       status: 2,
       type: 'Wygenerowany losowo',
       algorithm: 'Mrówkowy',
@@ -28,6 +31,7 @@ export class HomeComponent implements OnInit {
       progress: 30
     };
     const task3 = {
+      id: 3,
       status: 3,
       type: 'Wygenerowany losowo',
       algorithm: 'Mrówkowy',
@@ -38,4 +42,15 @@ export class HomeComponent implements OnInit {
   }
 
 
+  goToTask(id: number) {
+    this.router.navigateByUrl(`task/${id}`);
+  }
+
+  createNewTask() {
+    this.router.navigateByUrl('/new');
+  }
+
+  checkNodeInfo() {
+    this.router.navigateByUrl('/info');
+  }
 }

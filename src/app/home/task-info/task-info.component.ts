@@ -15,8 +15,8 @@ export class TaskInfoComponent implements OnInit {
   ngOnInit() {
   }
 
-  getProgress() {
-    return String(this.task.progress);
+  getProgress(): number {
+    return this.task.progress;
   }
 
   getColor() {

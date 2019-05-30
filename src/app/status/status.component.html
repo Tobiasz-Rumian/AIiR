@@ -1,3 +1,16 @@
-<p>
-  status works!
-</p>
+<div class="component">
+  <div class="popup">
+    <div class="buttons">
+      <button (click)="goHome()">Powrót do strony głównej</button>
+      <button (click)="createNewTask()">Utwórz nowe zadanie</button>
+    </div>
+    <hr>
+    <div class="info">
+      <h1>Wykorzystanie węzłów</h1>
+      <app-progress-bar *ngFor="let node of nodes" [color]="getColor(node)" [progress]="100">
+        <h2>Id: {{node.id}}</h2>
+        <h2>Status: {{getStatus(node)}}</h2>
+      </app-progress-bar>
+    </div>
+  </div>
+</div>

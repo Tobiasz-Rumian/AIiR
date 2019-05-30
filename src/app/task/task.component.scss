@@ -7,6 +7,16 @@
     background-color: white;
     border-radius: 40px;
     border:solid 1px #707070;
+    .info{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      button{
+        margin: 10px 0;
+      }
+    }
   }
   .buttons{
     padding: 30px;
