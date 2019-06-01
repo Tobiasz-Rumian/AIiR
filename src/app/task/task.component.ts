@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Task} from '../model/Task';
 import {Router} from '@angular/router';
+import axios, {AxiosResponse} from "axios";
+import Output from "../model/Output";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-task',
@@ -8,20 +11,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-  private task: Task;
+  @Input() task: Task;
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-    this.task = {
-      id: 1,
-      status: 1,
-      type: 'Wygenerowany losowo',
-      algorithm: 'Mrówkowy',
-      date: '12:05 02.05.2019',
-      progress: 80
-    };
   }
 
   getColor() {
@@ -47,7 +42,9 @@ export class TaskComponent implements OnInit {
   }
 
   downloadInputData() {
-    // TODO: Download input data
+    axios.get(`${environment.url}/${localStorage.getItem('userName')}/output/${this.task.id}`).then((response: AxiosResponse<Input>) => {
+      //TODO: save response to file
+    })
   }
 
   goHome() {
@@ -63,6 +60,8 @@ export class TaskComponent implements OnInit {
   }
 
   downloadOutputData() {
-    // TODO: Download output data
+    axios.get(`${environment.url}/${localStorage.getItem('userName')}/output/${this.task.id}`).then((response: AxiosResponse<Output>) => {
+      //TODO: save response to file
+    })
   }
 }
