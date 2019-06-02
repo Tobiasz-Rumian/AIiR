@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 import {HeaderComponent} from './header/header.component';
 import {TaskInfoComponent} from './home/task-info/task-info.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { ButtonComponent } from './button/button.component';
 
 const appRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     TaskInfoComponent,
     ProgressBarComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
