@@ -1,0 +1,51 @@
+{
+  "input": {
+    "data": "data text"
+  },
+  "output": {
+    "data": "data text"
+  },
+  "create": [
+    {
+      "random": true,
+      "login": "login"
+    }
+  ],
+  "tasks": {
+    "tasks": [
+      {
+        "id": 1,
+        "status": 1,
+        "type": "Wygenerowany losowo",
+        "date": "12:03 11.03.2019",
+        "progress": 40
+      },
+      {
+        "id": 2,
+        "status": 2,
+        "type": "Z pliku",
+        "date": "11:03 11.03.2019",
+        "progress": 23
+      },
+      {
+        "id": 3,
+        "status": 3,
+        "type": "Wygenerowany losowo",
+        "date": "10:03 11.03.2019",
+        "progress": 100
+      }
+    ]
+  },
+  "nodeInfo": {
+    "nodes": [
+      {
+        "id": 1,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "status": 2
+      }
+    ]
+  }
+}

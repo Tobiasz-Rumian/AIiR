@@ -1,6 +1,6 @@
 <div class="component">
-<div class="popup">
-  <h1>Podaj swój login</h1>
-  <input class="input" type="text" [(ngModel)]="userName" (keydown)="handleKeyPress($event)">
-</div>
+  <div class="popup">
+    <h1>Podaj swój login</h1>
+    <input (keydown)="handleKeyPress($event)" [(ngModel)]="userName" class="input" type="text">
+  </div>
 </div>

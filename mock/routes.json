@@ -1,0 +1,7 @@
+{
+  "/:login/input/:taskId": "/input",
+  "/:login/output/:taskId": "/output",
+  "/create": "/create",
+  "/:login/tasks": "/tasks",
+  "/nodeInfo": "/nodeInfo"
+}

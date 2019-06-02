@@ -9,20 +9,22 @@
       <div>
         <label>
           <p>Wygeneruj losowe miasta</p>
-          <input type="radio" name="checker" [(ngModel)]="type" value="random"/>
+          <input [(ngModel)]="type" name="checker" type="radio" value="random"/>
         </label>
         <label>
           <p>Wprowadź miasta z pliku</p>
-          <input type="radio" name="checker" [(ngModel)]="type" value="file"/>
+          <input [(ngModel)]="type" name="checker" type="radio" value="file"/>
+        </label>
+      </div>
+      <div class="file-selector">
+        <label *ngIf="type==='file'">
+          <p>Wprowadź plik z miastami</p>
+          <input (change)="onFileChange($event)" type="file">
         </label>
       </div>
       <div>
-        <label  *ngIf="type==='file'">
-          <p>Wprowadź plik z miastami</p>
-          <input type="file" (change)="onFileChange($event)">
-        </label>
-<!--        <button (click)="create()" [disabled]="!!data&&type">Zleć zadanie</button>-->
-        <app-button (click)="create()" >Zleć zadanie</app-button>
+        <!--        <button (click)="create()" [disabled]="!!data&&type">Zleć zadanie</button>-->
+        <app-button (click)="create()">Zleć zadanie</app-button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-.component{
+.component {
   height: 80px;
   width: calc(100% - 40px);
   display: flex;
@@ -6,7 +6,8 @@
   justify-content: space-between;
   border: solid 1px black;
   padding: 0 20px;
-  h1{
+
+  h1 {
     cursor: pointer;
   }
 }

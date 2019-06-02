@@ -1,9 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Task} from '../model/Task';
-import {Router} from '@angular/router';
-import axios, {AxiosResponse} from "axios";
-import Output from "../model/Output";
-import {environment} from "../../environments/environment";
+import {ActivatedRoute, Router} from '@angular/router';
+import axios, {AxiosResponse} from 'axios';
+import Output from '../model/Output';
+import {environment} from '../../environments/environment';
+import {Tasks} from '../model/Tasks';
+import {Input} from '../model/Input';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-task',
@@ -11,12 +14,18 @@ import {environment} from "../../environments/environment";
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-  @Input() task: Task;
+  task: Task = new Task();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      axios.get(`${environment.url}/${localStorage.getItem('userName')}/tasks`).then((response: AxiosResponse<Tasks>) => {
+        this.task = response.data.tasks.find((task: Task) => task.id === id);
+      });
+    });
   }
 
   getColor() {
@@ -43,8 +52,13 @@ export class TaskComponent implements OnInit {
 
   downloadInputData() {
     axios.get(`${environment.url}/${localStorage.getItem('userName')}/output/${this.task.id}`).then((response: AxiosResponse<Input>) => {
-      //TODO: save response to file
-    })
+      this.saveToFile(response.data.data, 'input.txt');
+    });
+  }
+
+  saveToFile(data: string, fileName: string) {
+    const blob = new Blob([data], {type: 'text/plain;charset=utf-8'});
+    saveAs(blob, fileName);
   }
 
   goHome() {
@@ -61,7 +75,7 @@ export class TaskComponent implements OnInit {
 
   downloadOutputData() {
     axios.get(`${environment.url}/${localStorage.getItem('userName')}/output/${this.task.id}`).then((response: AxiosResponse<Output>) => {
-      //TODO: save response to file
-    })
+      this.saveToFile(response.data.data, 'output.txt');
+    });
   }
 }

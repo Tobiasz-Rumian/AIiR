@@ -1,5 +1,5 @@
-import {Node} from "./Node";
+import {Node} from './Node';
 
 export default class NodeInfo {
- nodes:Node[]
+  nodes: Node[];
 }

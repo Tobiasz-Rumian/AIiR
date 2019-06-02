@@ -1,27 +1,31 @@
-.component{
+.component {
   height: calc(100% - 164px);
   background-color: #D8D8D8;
   padding: 42px;
 
-  .popup{
+  .popup {
     background-color: white;
     border-radius: 40px;
-    border:solid 1px #707070;
-    .info{
+    border: solid 1px #707070;
+
+    .info {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       padding: 20px;
-      app-progress-bar{
-        width:100%;
+
+      app-progress-bar {
+        width: 100%;
       }
     }
   }
-  .buttons{
+
+  .buttons {
     padding: 30px;
   }
-  h1{
+
+  h1 {
     width: 100%;
     text-align: center;
   }

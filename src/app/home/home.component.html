@@ -6,6 +6,6 @@
     </div>
     <hr>
     <h1>Ostatnie zadania</h1>
-    <app-task-info *ngFor="let task of tasks" [task]="task" (click)="goToTask(task.id)"></app-task-info>
+    <app-task-info (click)="goToTask(task.id)" *ngFor="let task of tasks" [task]="task"></app-task-info>
   </div>
 </div>

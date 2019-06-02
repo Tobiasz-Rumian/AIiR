@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {CreateRequest} from "../model/CreateRequest";
-import axios,{AxiosResponse} from "axios";
-import {environment} from "../../environments/environment";
+import {CreateRequest} from '../model/CreateRequest';
+import axios, {AxiosResponse} from 'axios';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-new-task',
@@ -10,9 +10,10 @@ import {environment} from "../../environments/environment";
   styleUrls: ['./new-task.component.scss']
 })
 export class NewTaskComponent implements OnInit {
-  type:string;
-  data:string;
-  file:any;
+  type: string;
+  data: string;
+  file: any;
+
   constructor(private router: Router) {
   }
 
@@ -29,25 +30,29 @@ export class NewTaskComponent implements OnInit {
 
   create() {
     let request: CreateRequest;
+    console.log(this.type);
+    console.log(this.data);
     request = {
-      random:this.type === 'random',
-      data:this.type==='random'?null:this.data,
+      random: this.type === 'random',
+      data: this.type === 'random' ? null : this.data,
       login: localStorage.getItem('userName')
     };
-    axios.post(`${environment.url}/tests/create`, request).then((response: AxiosResponse) => {
+    axios.post(`${environment.url}/create`, request).then((response: AxiosResponse) => {
       console.log(response);
-    });
+    }, (error => {
+      console.log(error);
+    }));
   }
 
   onFileChange(event) {
-    let reader = new FileReader();
+    const reader = new FileReader();
 
-    if(event.target.files && event.target.files.length) {
+    if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsText(file);
 
       reader.onload = () => {
-        this.data=reader.result;
+        this.data = reader.result;
       };
     }
   }

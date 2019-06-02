@@ -8,13 +8,13 @@
     <hr>
     <div class="info">
       <div class="data">
-      <p>Status: {{getStatus()}}</p>
-      <p>Typ: {{task.type}}</p>
-      <p>Data zlecenia: {{task.date}}</p>
+        <p>Status: {{getStatus()}}</p>
+        <p>Typ: {{task.type}}</p>
+        <p>Data zlecenia: {{task.date}}</p>
       </div>
-   <app-button (click)="downloadInputData()">Pobierz dane wejściowe</app-button>
-   <app-button *ngIf="task.status===3" (click)="downloadOutputData()">Pobierz wynik</app-button>
+      <app-button class="button" (click)="downloadInputData()">Pobierz dane wejściowe</app-button>
+      <app-button class="button" (click)="downloadOutputData()" *ngIf="task.status===3">Pobierz wynik</app-button>
     </div>
-  <app-progress-bar [progress]="task.progress" [color]="getColor()">{{task.progress}}%</app-progress-bar>
+    <app-progress-bar [color]="getColor()" [progress]="task.progress">{{task.progress}}%</app-progress-bar>
   </div>
 </div>
