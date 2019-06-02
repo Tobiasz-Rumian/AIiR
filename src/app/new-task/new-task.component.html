@@ -7,21 +7,22 @@
     <hr>
     <div class="info">
       <div>
-        <app-select>
-            <option value="1">Mrówkowy</option>
-        </app-select>
         <label>
           <p>Wygeneruj losowe miasta</p>
-          <input type="radio" name="checker"/>
+          <input type="radio" name="checker" [(ngModel)]="type" value="random"/>
         </label>
         <label>
           <p>Wprowadź miasta z pliku</p>
-          <input type="radio" name="checker"/>
+          <input type="radio" name="checker" [(ngModel)]="type" value="file"/>
         </label>
-
       </div>
       <div>
-        <app-button>Zleć zadanie</app-button>
+        <label  *ngIf="type==='file'">
+          <p>Wprowadź plik z miastami</p>
+          <input type="file" (change)="onFileChange($event)">
+        </label>
+<!--        <button (click)="create()" [disabled]="!!data&&type">Zleć zadanie</button>-->
+        <app-button (click)="create()" >Zleć zadanie</app-button>
       </div>
     </div>
   </div>

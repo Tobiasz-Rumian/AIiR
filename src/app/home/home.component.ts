@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from 'app/model/Task';
 import {Router} from '@angular/router';
+import axios, {AxiosResponse} from "axios";
+import {Tasks} from "../model/Tasks";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-home',
@@ -14,6 +17,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    axios.get(`${environment.url}/${localStorage.getItem('userName')}/getTasks`).then((response:AxiosResponse<Tasks>)=>{
+      this.tasks=response.data.tasks;
+    });
+
     const task1 = {
       id: 1,
       status: 1,
