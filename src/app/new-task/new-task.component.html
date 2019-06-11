@@ -8,6 +8,20 @@
     <div class="info">
       <div>
         <label>
+          <p>Długość tabu</p>
+          <input type="text" [(ngModel)]="tabuLength"/>
+        </label>
+        <label>
+          <p>Iteracje bez poprawy</p>
+          <input type="text" [(ngModel)]="iterationsWithoutImprovement"/>
+        </label>
+        <label>
+          <p>Iteracje tabu</p>
+          <input type="text" [(ngModel)]="iterationsOfTabu"/>
+        </label>
+      </div>
+      <div>
+        <label>
           <p>Wygeneruj losowe miasta</p>
           <input [(ngModel)]="type" name="checker" type="radio" value="random"/>
         </label>

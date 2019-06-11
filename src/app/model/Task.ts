@@ -4,4 +4,7 @@ export class Task {
   type: string;
   date: string;
   progress: number;
+  tabuLength: number;
+  iterationsWithoutImprovement: number;
+  iterationsOfTabu: number;
 }

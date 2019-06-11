@@ -13,6 +13,9 @@ export class NewTaskComponent implements OnInit {
   type: string;
   data: string;
   file: any;
+  tabuLength: number;
+  iterationsWithoutImprovement: number;
+  iterationsOfTabu: number;
 
   constructor(private router: Router) {
   }
@@ -35,7 +38,10 @@ export class NewTaskComponent implements OnInit {
     request = {
       random: this.type === 'random',
       data: this.type === 'random' ? null : this.data,
-      login: localStorage.getItem('userName')
+      login: localStorage.getItem('userName'),
+      tabuLength: this.tabuLength,
+      iterationsWithoutImprovement: this.iterationsWithoutImprovement,
+      iterationsOfTabu: this.iterationsOfTabu
     };
     axios.post(`${environment.url}/create`, request).then((response: AxiosResponse) => {
       console.log(response);

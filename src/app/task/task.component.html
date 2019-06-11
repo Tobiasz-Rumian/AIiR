@@ -11,6 +11,9 @@
         <p>Status: {{getStatus()}}</p>
         <p>Typ: {{task.type}}</p>
         <p>Data zlecenia: {{task.date}}</p>
+        <p>Długość tabu: {{task.tabuLength}}</p>
+        <p>Iteracje bez poprawy: {{task.iterationsWithoutImprovement}}</p>
+        <p>Iteracje tabu: {{task.iterationsOfTabu}}</p>
       </div>
       <app-button class="button" (click)="downloadInputData()">Pobierz dane wejściowe</app-button>
       <app-button class="button" (click)="downloadOutputData()" *ngIf="task.status===3">Pobierz wynik</app-button>
